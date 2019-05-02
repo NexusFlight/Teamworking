@@ -13,13 +13,8 @@ public class Enemy extends Actor
     int moveSpd = 2;
     int mobType;
     int health;
-    int damage;
-    int x,y;
-    private Hero hero;
-    int heroX, heroY;
-    public Enemy(int moveDir, int worldNum, Hero hero){
+    public Enemy(int moveDir, int worldNum){
         //skelly ghost elemental zombie masked slime demon
-        this.hero = hero;
         GreenfootImage[] enemys = {new GreenfootImage("mobSkeletonRight.png"),new GreenfootImage("mobGhostRight.png"),new GreenfootImage("mobElementalRight.png"),new GreenfootImage("mobZombieRight.png"),new GreenfootImage("mobMaskedRight.png"),new GreenfootImage("mobSlimeRight.png"),new GreenfootImage("mobDemonLeft.png")};
         mobType = Greenfoot.getRandomNumber(enemys.length);
         GreenfootImage img = enemys[mobType];
@@ -31,8 +26,13 @@ public class Enemy extends Actor
         setImage(img);
         this.moveDir = moveDir;
         health = (int)(((mobType+1)*5)*worldNum/1.5);
-        damage = (int)(((mobType+1)*2)*worldNum);
+
     }
+
+    /**
+     * Act - do whatever the Enemy wants to do. This method is called whenever
+     * the 'Act' or 'Run' button gets pressed in the environment.
+     */
     public void act() 
     {
         checkCollison();
@@ -44,20 +44,7 @@ public class Enemy extends Actor
             reverseMovement();
         }
     }
-    private void followPlayer()
-    {
-        if(!getObjectsInRange(400,Hero.class).isEmpty())
-        {
-            hero = (Hero)getObjectsInRange(400,Hero.class).get(0);
-            if(hero != null)
-            {
-                turnTowards(hero.getHeroX(), hero.getHeroY());
-                move(1);
-                setRotation(0);
-            }
-        }
-        
-    }
+
     private void reverseMovement(){
         if(moveDir == 1)
         {
@@ -78,9 +65,8 @@ public class Enemy extends Actor
     }
 
     public void move(){
-        x = getX();
-        y = getY();
-        
+        int x = getX();
+        int y = getY();
         if(moveDir == 1)
         {
             setLocation(x,y-moveSpd);
@@ -99,36 +85,9 @@ public class Enemy extends Actor
         }
     }
 
-    public void setMoveDir(int move)
-    {
-        this.moveSpd = move;
-    }
-
-    public void takeDamage(int damage, Hero hero){
+    
+    
+    public void takeDamage(int damage){
         health -= damage;
-        heroX = hero.getHeroX();
-        if(x < heroX)
-        {
-            setLocation(x-15,y);
-        }
-        else
-        {
-            setLocation(x+15,y);
-        }
-    }
-
-    public int getDamage()
-    {
-        return damage;
-    }
-
-    public int getEnemyX()
-    {
-        return getX();
-    }
-
-    public int getEnemyY()
-    {
-        return getY();
     }
 }
