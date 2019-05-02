@@ -24,6 +24,7 @@ public class Hero extends Actor
     private int mobDamage, mobX, mobY;
     private Enemy enemy;
     private boolean hasTakenDamage = false;
+    private int level = 1;
     public Hero(){
         img = getImage();
         img.scale(25, 26);
@@ -48,9 +49,28 @@ public class Hero extends Actor
         if(isTouching(Wall.class)){
             setLocation(prevX,prevY);  
         }
-        if(isTouching(Portal.class)){
-            TestWorld world = (TestWorld) getWorld();
-            world.nextWorld();
+        if(isTouching(Portal.class)){      
+            /*using conditions such as collected key or defeated enemy
+             *allow user to go back and forth between levels 
+             *(remember to add additional portals where required)
+             */
+            //if condition is met
+            level++;
+            //if condition is not met
+            //level--;
+            
+            //cannot ask hero to call something that may not exist
+            //so to keep track of (world2) portal swaps a journey based world (WorldAlt)
+            //keeps the same world and changes the contents
+            //until the boss room is reached.
+            WorldAlt world = (WorldAlt) getWorld();
+            world.setLevel(level);
+        }
+        if(isTouching(Item.class)){
+            //add effects of item
+            //TODO
+            //cast delete item
+            //TODO
         }
         if(isTouching(Enemy.class)){
             enemy = (Enemy)getOneIntersectingObject(Enemy.class);
