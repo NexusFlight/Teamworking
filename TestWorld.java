@@ -22,13 +22,7 @@ public class TestWorld extends greenfoot.World
     
     protected void addObjects(){
         hero = new Hero();
-        Enemy enemy = new Enemy(1,1, hero);
-        Wall wall = new Wall(500,5);
-        Wall wallTwo = new Wall(500,5);
-        addObject(hero,300,200);
-        addObject(enemy, 200,200);
-        addObject(wall,250,45);
-        addObject(wallTwo,250,250);
+        addObject(hero,300,300);
     }
     
     public void nextWorld(){
