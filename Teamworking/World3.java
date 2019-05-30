@@ -9,18 +9,23 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class World3 extends World
 {
     private Hero hero;
+    World2 world2;
+    World3 world3;
     /**
      * Constructor for objects of class World3.
      * 
      */
-    public World3(Hero hero)
+    public World3(Hero hero, World2 world2)
     {
         super(1095,540,1);
+        this.world2 = world2;
         bg("world3.png");
+    }
+    public void setHero(Hero hero)
+    {
         this.hero = hero;
         addObjects();
     }
-
     private void bg(String bgImage){
         GreenfootImage bg = new GreenfootImage(bgImage);
         bg.scale(getWidth(), getHeight());
@@ -43,6 +48,8 @@ public class World3 extends World
         Wall vertRightBottomWall = new Wall(2, getHeight()/2);
         Wall horTopRightWall = new Wall(getWidth()/7, 2);
         Wall horBottomRightWall = new Wall(getWidth()/7, 2);
+        
+        addObject(new Portal(world2),1000,240);
         
         addObject(horTopWall, getWidth()/2, 95);
         addObject(horBottomWall, getWidth()/2, 442);

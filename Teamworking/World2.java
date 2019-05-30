@@ -13,14 +13,17 @@ public class World2 extends World
      * Constructor for objects of class testWorld2.
      * 
      */
-    public World2(Hero hero)
+    public World2()
     {
         super(1095,540,1);
-        bg("world2DoorClosed.png");
-        this.hero = hero;
-        addObjects();        
+        bg("world2.png");   
     }
 
+    public void setHero(Hero hero){
+        this.hero = hero;
+        addObjects();     
+    }
+    
     public void openDoor(){
         bg("world2DoorOpen.png");
     }
@@ -33,7 +36,6 @@ public class World2 extends World
     
     protected void addObjects(){
         addObject(hero,600,400);
-        
         Wall topWallLong = new Wall(getWidth(), 2);
         Wall bottomWallLong = new Wall(getWidth(), 2);
         Wall horLeftWall = new Wall(getWidth()/4, 2);

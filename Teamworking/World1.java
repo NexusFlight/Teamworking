@@ -14,21 +14,26 @@ public class World1 extends World
      * 
      */
     public World1()
-    {    
+    {
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1095,540,1);       
         bg("world1.png"); 
+        hero = new Hero();
         addObjects();
     }
-			 public World1(Hero hero)
+    public World1(Hero hero)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1095,540,1);       
         bg("world1.png"); 
+        
+    }   
+    public void setHero(Hero hero)
+    {
         this.hero = hero;
         addObjects();
-    }	
-	
+    }
+    
     private void bg(String bgImage){
         GreenfootImage bg = new GreenfootImage(bgImage);
         bg.scale(getWidth(), getHeight());
@@ -36,8 +41,9 @@ public class World1 extends World
     }
     
     protected void addObjects(){
-        hero = new Hero();
-        addObject(hero,450,450);
+        
+        
+        Portal portal = new Portal(new World2());
         
         Wall vertWallLeftLong = new Wall(2, 360);
         Wall topWall = new Wall (getWidth(), 2);
@@ -46,6 +52,8 @@ public class World1 extends World
         Wall horWallRightShort = new Wall (120, 2);
         Wall vertWallRight = new Wall(2, 400);
         
+        addObject(portal,10,100);
+        addObject(hero,450,450);
         addObject(topWall, getWidth()/2, 60);
         addObject(vertWallLeftLong, 69, 310);
         addObject(horWallLeftShort, 17, 131);

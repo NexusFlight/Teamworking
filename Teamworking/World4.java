@@ -9,14 +9,16 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class World4 extends World
 {
     private Hero hero;
+    World2 world2;
     /**
      * Constructor for objects of class World4.
      * 
      */
-    public World4(Hero hero)
+    public World4(Hero hero, World2 world2)
     {
         super(1095,540,1);
         bg("world4.png");
+        this.world2 = world2;
         this.hero = hero;
         addObjects();
     }
