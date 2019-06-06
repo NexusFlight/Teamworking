@@ -1,10 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Item here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Team A 
  */
 public class ItemCrate extends Actor
 {
@@ -15,16 +12,16 @@ public class ItemCrate extends Actor
         this.isArmor = isArmor;
         if(!isArmor)
             potionType = Greenfoot.getRandomNumber(potions.length);
-    }
+    }//end itemCrate
 
     public void destroyCrate(Hero hero){
         if(!isArmor){
             getWorld().addObject(potions[potionType], getX(), getY());
-        }
+        }//end if
         else{
            hero.setArmor(); 
-        }
+        }//end else
 
         getWorld().removeObject(this);
-    }
-}
+    }//end destroyCrate
+}//end class
