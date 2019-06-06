@@ -1,10 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class World3 here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Team A
  */
 public class World3 extends World
 {
@@ -20,17 +17,17 @@ public class World3 extends World
         super(1095,540,1);
         this.world2 = world2;
         bg("world3.png");
-    }
+    }//end World3
     public void setHero(Hero hero)
     {
         this.hero = hero;
         addObjects();
-    }
+    }//end setHero
     private void bg(String bgImage){
         GreenfootImage bg = new GreenfootImage(bgImage);
         bg.scale(getWidth(), getHeight());
         setBackground(bg);
-    }
+    }//end bg
     
     protected void addObjects(){
         addEnemys();
@@ -67,20 +64,20 @@ public class World3 extends World
         addObject(vertRightBottomWall, 1015, 429);
         addObject(horTopRightWall, 1093, 221);
         addObject(horBottomRightWall, 1093, 295);
-    }
+    }//end addObjects
     
     protected void addEnemys(){
        //add enemy
         addObject(new Enemy(3, hero), 157,180);
         addObject(new Enemy(3, hero), 512,273);
         addObject(new Enemy(3, hero), 265,393);
-    }
+    }//end addEnemys
     
     protected void addCrates(){
         //add items
        addObject(new ItemCrate(false), 711,152);
        addObject(new ItemCrate(false), 826,407);
        addObject(new ItemCrate(true), 323,130);
-    }
+    }//end addCrates
 
-}
+}//end class
