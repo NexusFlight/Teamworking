@@ -46,9 +46,11 @@ public class Portal extends Actor
         }//end if
         if(world4 != null){
             Greenfoot.setWorld(world4);
+            world4.setHero(hero);
         }//end if
         if(world5 != null){
             Greenfoot.setWorld(world5);
+            world5.setHero(hero);
         }//end if
     }//end transitionWorld
 }//end class

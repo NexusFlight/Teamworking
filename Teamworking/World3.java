@@ -1,7 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * @author Team A
+ * Write a description of class World3 here.
+ * 
+ * @author (your name) 
+ * @version (a version number or a date)
  */
 public class World3 extends World
 {
@@ -12,28 +15,28 @@ public class World3 extends World
      * Constructor for objects of class World3.
      * 
      */
-    public World3(Hero hero, World2 world2)
+    public World3(World2 world2)
     {
         super(1095,540,1);
         this.world2 = world2;
         bg("world3.png");
-    }//end World3
+    }
     public void setHero(Hero hero)
     {
         this.hero = hero;
         addObjects();
-    }//end setHero
+    }
     private void bg(String bgImage){
         GreenfootImage bg = new GreenfootImage(bgImage);
         bg.scale(getWidth(), getHeight());
         setBackground(bg);
-    }//end bg
+    }
     
     protected void addObjects(){
         addEnemys();
         addCrates();
         //add hero
-        addObject(hero,1050,253);
+        addObject(hero,1000,253);
         //create walls
         Wall horTopWall = new Wall(getWidth(), 2);
         Wall horBottomWall = new Wall(getWidth(), 2);
@@ -49,7 +52,7 @@ public class World3 extends World
         Wall horTopRightWall = new Wall(getWidth()/7, 2);
         Wall horBottomRightWall = new Wall(getWidth()/7, 2);
         //add portal
-        addObject(new Portal(world2),1000,240);
+        addObject(new Portal(world2),1051,230);
         //add walls
         addObject(horTopWall, getWidth()/2, 95);
         addObject(horBottomWall, getWidth()/2, 442);
@@ -64,20 +67,20 @@ public class World3 extends World
         addObject(vertRightBottomWall, 1015, 429);
         addObject(horTopRightWall, 1093, 221);
         addObject(horBottomRightWall, 1093, 295);
-    }//end addObjects
+    }
     
     protected void addEnemys(){
        //add enemy
-        addObject(new Enemy(3, hero), 157,180);
-        addObject(new Enemy(3, hero), 512,273);
-        addObject(new Enemy(3, hero), 265,393);
-    }//end addEnemys
+        addObject(new Enemy(3,3, hero), 157,180);
+        addObject(new Enemy(3,3, hero), 512,273);
+        addObject(new Enemy(3,3, hero), 265,393);
+    }
     
     protected void addCrates(){
         //add items
        addObject(new ItemCrate(false), 711,152);
        addObject(new ItemCrate(false), 826,407);
        addObject(new ItemCrate(true), 323,130);
-    }//end addCrates
+    }
 
-}//end class
+}

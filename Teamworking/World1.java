@@ -1,7 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * @author Team A
+ * Write a description of class World1 here.
+ * 
+ * @author (your name) 
+ * @version (a version number or a date)
  */
 public class World1 extends World
 {
@@ -17,34 +20,34 @@ public class World1 extends World
         bg("world1.png"); 
         hero = new Hero();
         addObjects();
-    }//end world1
+    }
     public World1(Hero hero)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1095,540,1);       
         bg("world1.png"); 
         
-    } //end world1
+    }   
     public void setHero(Hero hero)
     {
         this.hero = hero;
         addObjects();
-    }//end setHero
+    }
     
     private void bg(String bgImage){
         GreenfootImage bg = new GreenfootImage(bgImage);
         bg.scale(getWidth(), getHeight());
         setBackground(bg);
-    }//end bg
+    }
     
     protected void addObjects(){
         addEnemys();
-        addCrates();        
+        addCrates();  
         //create and add portal
         Portal portal = new Portal(new World2());
-        addObject(portal,10,100);
+        addObject(portal,0,100);
         //add hero
-        addObject(hero,450,450);
+        addObject(hero,1029,445);
         //create walls
         Wall vertWallLeftLong = new Wall(2, 360);
         Wall topWall = new Wall (getWidth(), 2);
@@ -59,13 +62,13 @@ public class World1 extends World
         addObject(bottomWall, getWidth()/2, 478);
         addObject(horWallRightShort, 1040, 403);
         addObject(vertWallRight,978, 203);
-    }//end addObjects
+    }
     protected void addEnemys(){
         //add enemy
-        addObject(new Enemy(1, hero), 200,200);
-        addObject(new Enemy(1, hero), 300,300);
-        addObject(new Enemy(1, hero), 400,400);
-    }//end addEnemys
+        addObject(new Enemy(1,1, hero), 200,200);
+        addObject(new Enemy(1,1, hero), 300,300);
+        addObject(new Enemy(1,1, hero), 400,400);
+    }
     protected void addCrates(){        
         //add itemc crates
         addObject(new ItemCrate(false), 100,400);
@@ -76,6 +79,6 @@ public class World1 extends World
         addObject(new ItemCrate(false), 900,400);
         addObject(new ItemCrate(false), 300,100);
         addObject(new ItemCrate(false), 900,100);
-    }//end addCrates
+    }
 
-}//end class
+}

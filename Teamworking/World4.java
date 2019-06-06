@@ -9,18 +9,22 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class World4 extends World
 {
     private Hero hero;
-    World2 world2;
+    private World2 worldTwo;
     /**
      * Constructor for objects of class World4.
      * 
      */
-    public World4(Hero hero, World2 world2)
+    public World4(World2 world2)
     {
         super(1095,540,1);
         bg("world4.png");
-        this.world2 = world2;
+        this.worldTwo = worldTwo;
+    }
+    
+    public void setHero(Hero hero){
         this.hero = hero;
-        addObjects();
+        worldTwo = new World2();
+        addObjects();     
     }
 
     private void bg(String bgImage){
@@ -34,6 +38,8 @@ public class World4 extends World
         addCrates();   
         //add hero
         addObject(hero,100,100);
+        Portal portal = new Portal(worldTwo);
+        addObject(portal,10,100);
         //create walls
         Wall vertWallOne = new Wall(2, 60);
         Wall vertWallTwo = new Wall(2, 60);
@@ -93,9 +99,10 @@ public class World4 extends World
     }
         protected void addEnemys(){
         //add enemy
-        addObject(new Enemy(4, hero), 405,421);
-        addObject(new Enemy(4, hero), 764,199);
-        addObject(new Enemy(4, hero), 904,414);
+        addObject(new Enemy(4,4, hero), 405,421);
+        addObject(new Enemy(4,4, hero), 764,199);
+        addObject(new Enemy(4,4,
+        hero), 904,414);
     }
     protected void addCrates(){
         //add items

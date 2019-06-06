@@ -14,12 +14,15 @@ public class World5 extends World
      * Constructor for objects of class World5.
      * 
      */
-    public World5(Hero hero)
+    public World5()
     {
         super(570,508,1);
         bg("bossTest.png");
+    }
+    
+    public void setHero(Hero hero){
         this.hero = hero;
-        addObjects();
+        addObjects();     
     }
 
     private void bg(String bgImage){
