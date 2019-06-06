@@ -1,10 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class World1 here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Team A
  */
 public class World1 extends World
 {
@@ -20,25 +17,25 @@ public class World1 extends World
         bg("world1.png"); 
         hero = new Hero();
         addObjects();
-    }
+    }//end world1
     public World1(Hero hero)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1095,540,1);       
         bg("world1.png"); 
         
-    }   
+    } //end world1
     public void setHero(Hero hero)
     {
         this.hero = hero;
         addObjects();
-    }
+    }//end setHero
     
     private void bg(String bgImage){
         GreenfootImage bg = new GreenfootImage(bgImage);
         bg.scale(getWidth(), getHeight());
         setBackground(bg);
-    }
+    }//end bg
     
     protected void addObjects(){
         addEnemys();
@@ -62,13 +59,13 @@ public class World1 extends World
         addObject(bottomWall, getWidth()/2, 478);
         addObject(horWallRightShort, 1040, 403);
         addObject(vertWallRight,978, 203);
-    }
+    }//end addObjects
     protected void addEnemys(){
         //add enemy
         addObject(new Enemy(1, hero), 200,200);
         addObject(new Enemy(1, hero), 300,300);
         addObject(new Enemy(1, hero), 400,400);
-    }
+    }//end addEnemys
     protected void addCrates(){        
         //add itemc crates
         addObject(new ItemCrate(false), 100,400);
@@ -79,6 +76,6 @@ public class World1 extends World
         addObject(new ItemCrate(false), 900,400);
         addObject(new ItemCrate(false), 300,100);
         addObject(new ItemCrate(false), 900,100);
-    }
+    }//end addCrates
 
-}
+}//end class
