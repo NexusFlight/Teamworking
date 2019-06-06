@@ -35,7 +35,11 @@ public class World2 extends World
     }
     
     protected void addObjects(){
+        addEnemys();
+        addCrates();
+        //add hero
         addObject(hero,600,400);
+        //create walls
         Wall topWallLong = new Wall(getWidth(), 2);
         Wall bottomWallLong = new Wall(getWidth(), 2);
         Wall horLeftWall = new Wall(getWidth()/4, 2);
@@ -46,8 +50,7 @@ public class World2 extends World
         Wall vertRightShortTopWall = new Wall(2, getHeight()/6);
         Wall vertRightShortBottomWall = new Wall(2, getHeight()/6);
         Wall vertLeftShortWall = new Wall(2, getHeight()/6);
-        
-       
+        //add walls
         addObject(topWallLong, getWidth()/2, 83);
         addObject(bottomWallLong, getWidth()/2, 424);
         addObject(horLeftWall, 302, 152);
@@ -58,9 +61,20 @@ public class World2 extends World
         addObject(vertRightShortTopWall, 849, 120);
         addObject(vertRightShortBottomWall, 659, 397);
         addObject(vertLeftShortWall, 177, 118);
-        
-        
-        
+    }
+    
+    protected void addEnemys(){
+        //add enemy
+        addObject(new Enemy(2, hero), 510,170);
+        addObject(new Enemy(2, hero), 790,130);
+        addObject(new Enemy(2, hero), 230,130); 
+    }
+    
+    protected void addCrates(){
+        //add crates
+        addObject(new ItemCrate(false), 514,336);
+        addObject(new ItemCrate(false), 719,132);
+        addObject(new ItemCrate(false), 323,130);
     }
     
 }
