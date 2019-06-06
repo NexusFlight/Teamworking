@@ -1,10 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class LargePotion here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Team A
  */
 public class Potion extends Actor
 {
@@ -15,24 +12,25 @@ public class Potion extends Actor
             img.scale(12,14);
             setImage(img);
             additionalHP = 10;
-        }else{
+        }//end if
+        else{
             GreenfootImage img = getImage();
             img.scale(12,14);
             setImage(img);
             additionalHP = 25;
-        }
+        }//end else
         
-    }
+    }//end potion
    
     public void act(){
         if(additionalHP == 0){
             getWorld().removeObject(this);
-        }
-    }
+        }//end if
+    }//end act
     
     public int getHP(){
         int hp = additionalHP;
         additionalHP = 0;
         return hp;
-    }
-}
+    }//end getHP
+}//emd class
