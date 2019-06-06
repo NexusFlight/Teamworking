@@ -1,10 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Wall here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Team A
  */
 public class Wall extends Actor
 {
@@ -13,6 +10,5 @@ public class Wall extends Actor
         GreenfootImage wall = getImage();
         wall.scale(width, height);
         setImage(wall);
-    }
-    
-}
+    }//end Wall
+}//end class
