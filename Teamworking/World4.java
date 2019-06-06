@@ -30,8 +30,11 @@ public class World4 extends World
     }
     
     protected void addObjects(){
+        addEnemys();
+        addCrates();   
+        //add hero
         addObject(hero,100,100);
-        
+        //create walls
         Wall vertWallOne = new Wall(2, 60);
         Wall vertWallTwo = new Wall(2, 60);
         Wall vertWallThree = new Wall(2, 190);
@@ -59,7 +62,7 @@ public class World4 extends World
         Wall horWallEleven = new Wall(275,2);//done
         Wall horWallTwelve = new Wall(295,2);//done
         Wall horWallThirteen = new Wall(420,2);//done
-        
+        //add walls
         addObject(horWallOne,301,48);//done
         addObject(horWallTwo,17,124);//done
         addObject(horWallThree,223,124);//done
@@ -87,6 +90,27 @@ public class World4 extends World
         addObject(vertWallEleven, 441, 328);
         addObject(vertWallTwelve, 280, 458);
         addObject(vertWallThirteen, 543, 458);
+    }
+        protected void addEnemys(){
+        //add enemy
+        addObject(new Enemy(4, hero), 405,421);
+        addObject(new Enemy(4, hero), 764,199);
+        addObject(new Enemy(4, hero), 904,414);
+    }
+    protected void addCrates(){
+        //add items
+        addObject(new ItemCrate(false), 116,135);
+        addObject(new ItemCrate(false), 146,135);
+        addObject(new ItemCrate(false), 166,135);
+        addObject(new ItemCrate(false), 315,462);
+        addObject(new ItemCrate(false), 500,450);
+        addObject(new ItemCrate(false), 700,450);
+        addObject(new ItemCrate(false), 800,450);
+        addObject(new ItemCrate(false), 900,300);
+        addObject(new ItemCrate(false), 800,300);
+        addObject(new ItemCrate(false), 900,250);
+        addObject(new ItemCrate(false), 850,300);
+        addObject(new ItemCrate(false), 700,300);  
     }
 
 }
